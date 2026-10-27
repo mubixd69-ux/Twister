@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://ccnu52aw6ea6l" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="3_jyhfs"]
 [ext_resource type="Script" uid="uid://uihg653d6f03" path="res://scripts/kill_zone.gd" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bcd7v0lq0cvq5" path="res://coin.tscn" id="5_tefeu"]
+[ext_resource type="AudioStream" uid="uid://bbcnl8prtg0rm" path="res://Assets/music/time_for_adventure.mp3" id="8_tipki"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
 texture = ExtResource("1_0wfyh")
@@ -227,7 +228,7 @@ script = ExtResource("1_o6xl0")
 
 [node name="end" parent="." unique_id=1167529760 instance=ExtResource("1_tefeu")]
 z_index = 1
-position = Vector2(1114, 482)
+position = Vector2(1123, 471)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1596567552]
 position = Vector2(576, 325)
@@ -248,13 +249,14 @@ position = Vector2(117, 478)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=11381377]
 modulate = Color(1, 1, 1, 0.078431375)
-offset_left = 494.0
+offset_left = 276.99997
 offset_top = 408.0
-offset_right = 542.0
-offset_bottom = 452.0
+offset_right = 561.5454
+offset_bottom = 458.0
+scale = Vector2(1.1, 1.1)
 theme_override_fonts/normal_font = ExtResource("3_jyhfs")
-theme_override_font_sizes/normal_font_size = 40
-text = "E"
+theme_override_font_sizes/normal_font_size = 27
+text = "Left - Click"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=252970677]
 
@@ -301,6 +303,11 @@ rotation = -3.1415925
 
 [node name="Coin2" parent="coins" unique_id=191990791 instance=ExtResource("5_tefeu")]
 position = Vector2(437, 484.00003)
+
+[node name="music" type="AudioStreamPlayer2D" parent="." unique_id=1460291233]
+process_mode = 3
+stream = ExtResource("8_tipki")
+autoplay = true
 
 [connection signal="body_entered" from="kill zones/Kill zone" to="kill zones/Kill zone" method="_on_body_entered"]
 [connection signal="body_entered" from="kill zones/Kill zone2" to="kill zones/Kill zone2" method="_on_body_entered"]
