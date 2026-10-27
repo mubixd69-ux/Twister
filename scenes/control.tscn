@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cgfgwq3j13fkp"]
+
+[ext_resource type="Script" uid="uid://cyf1vf5ftrom2" path="res://scripts/control.gd" id="1_5p55f"]
+[ext_resource type="FontFile" uid="uid://do7oh0lgdajub" path="res://Assets/fonts/PixelOperator8.ttf" id="2_r67kn"]
+[ext_resource type="FontFile" uid="uid://ccnu52aw6ea6l" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="3_brbbq"]
+
+[node name="StatsScreen" type="Control" unique_id=743379303]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5p55f")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1011685305]
+position = Vector2(434, 234)
+zoom = Vector2(3, 3)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1864188138]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="StatsLabel" type="RichTextLabel" parent="." unique_id=242371793]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 168.0
+offset_right = 656.0
+offset_bottom = 389.0
+theme_override_fonts/normal_font = ExtResource("2_r67kn")
+theme_override_fonts/bold_font = ExtResource("3_brbbq")
+theme_override_font_sizes/normal_font_size = 16
+text = "wadawdasdawda"
+horizontal_alignment = 1
