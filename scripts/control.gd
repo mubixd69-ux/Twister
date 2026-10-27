@@ -1,7 +1,6 @@
 extends Control
 
 @onready var stats_label: RichTextLabel = $StatsLabel
-@onready var prompt_label: RichTextLabel = $PromtLabel
 
 @export var is_final_level = false
 @export_file("*.tscn") var next_level_scene: String
@@ -20,17 +19,15 @@ func _ready() -> void:
 	var prompt := "Press any key to continue"
 	
 	if is_final_level:
-		title = "Congratulations!\nYou completed the game!"
-		footer = "\n\n\nThanks for playing!"
+		title = "Congratulations!\n\nYou completed the game!"
+		footer = "\n\nThanks for playing!"
 		prompt = "Press any key to return to the main menu"
 	
 	stats_label.bbcode_enabled = true
 	stats_label.text = (
-		"[center][b]%s[/b]\n\n\nCoins Collected: %d\n\nTime Spent: %.1fs%s[/center]" % [title, coins, formatted_time, footer]
+	"[center][b]%s[/b]\n\nCoins Collected: %d\n\nTime Spent: %.1fs%s\n\n%s[/center]"
+	% [title, coins, formatted_time, footer, prompt]
 	)
-	
-	prompt_label.text = prompt
-	prompt_label.modulate.a = 0.0
 	
 	stats_label.visible_characters = 0
 	var total_characters = stats_label.get_parsed_text().length()
@@ -39,7 +36,6 @@ func _ready() -> void:
 	var tween = create_tween()
 	tween.tween_interval(1.0)
 	tween.tween_property(stats_label, "visible_characters", total_characters, duration)
-	tween.tween_property(prompt_label, "modulate:a", 1.0, 0.5)
 	tween.tween_callback(func(): can_continue = true)
 
 func _unhandled_input(event: InputEvent) -> void:

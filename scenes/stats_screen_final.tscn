@@ -16,7 +16,7 @@ is_final_level = true
 main_menu_scene = "uid://dgcqmetjh1ead"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1011685305]
-position = Vector2(434, 234)
+position = Vector2(434, 158)
 zoom = Vector2(3, 3)
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1864188138]
@@ -31,25 +31,12 @@ color = Color(0, 0, 0, 1)
 [node name="StatsLabel" type="RichTextLabel" parent="." unique_id=242371793]
 layout_mode = 0
 offset_left = 215.0
-offset_top = 168.0
+offset_top = 61.0
 offset_right = 656.0
-offset_bottom = 389.0
+offset_bottom = 282.0
 theme_override_fonts/normal_font = ExtResource("2_3eec0")
 theme_override_fonts/bold_font = ExtResource("3_6bk6f")
 theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "wadawdasdawda"
-horizontal_alignment = 1
-
-[node name="PromtLabel" type="RichTextLabel" parent="." unique_id=2065410965]
-layout_mode = 0
-offset_left = 215.0
-offset_top = 270.0
-offset_right = 656.0
-offset_bottom = 491.0
-theme_override_fonts/normal_font = ExtResource("2_3eec0")
-theme_override_fonts/bold_font = ExtResource("3_6bk6f")
-theme_override_font_sizes/normal_font_size = 16
-bbcode_enabled = true
-text = "wadawdas"
 horizontal_alignment = 1
