@@ -40,16 +40,3 @@ theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "wadawdasdawda"
 horizontal_alignment = 1
-
-[node name="PromtLabel" type="RichTextLabel" parent="." unique_id=2065410965]
-layout_mode = 0
-offset_left = 215.0
-offset_top = 270.0
-offset_right = 656.0
-offset_bottom = 491.0
-theme_override_fonts/normal_font = ExtResource("2_r67kn")
-theme_override_fonts/bold_font = ExtResource("3_brbbq")
-theme_override_font_sizes/normal_font_size = 16
-bbcode_enabled = true
-text = "wadawdasdawda"
-horizontal_alignment = 1
