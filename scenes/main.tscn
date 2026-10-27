@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cu4g48xt5pd1i"]
 
 [ext_resource type="Texture2D" uid="uid://dovai170x0jp7" path="res://Assets/sprites/world_tileset.png" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://ceiellgms4lfk" path="res://scripts/main.gd" id="1_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://b14404hmu5oo7" path="res://scenes/end.tscn" id="1_tefeu"]
 [ext_resource type="PackedScene" uid="uid://cuq0gw18xq4kx" path="res://scenes/player.tscn" id="2_sugp2"]
 [ext_resource type="FontFile" uid="uid://ccnu52aw6ea6l" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="3_jyhfs"]
@@ -167,11 +168,22 @@ texture = ExtResource("1_0wfyh")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_jyhfs")
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8fc75"]
-distance = 1.0
+[sub_resource type="Animation" id="Animation_o6xl0"]
+resource_name = "Back to normal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeScreen:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_tbgi4"]
-length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -202,15 +214,20 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o6xl0"]
 _data = {
+&"Back to normal": SubResource("Animation_o6xl0"),
 &"RESET": SubResource("Animation_tbgi4"),
 &"fade_to_black": SubResource("Animation_tefeu")
 }
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8fc75"]
+distance = 1.0
+
 [node name="main" type="Node2D" unique_id=370371452 groups=["player"]]
+script = ExtResource("1_o6xl0")
 
 [node name="end" parent="." unique_id=1167529760 instance=ExtResource("1_tefeu")]
 z_index = 1
-position = Vector2(1114, 478.00003)
+position = Vector2(1114, 482)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1596567552]
 position = Vector2(576, 325)
@@ -239,6 +256,22 @@ theme_override_fonts/normal_font = ExtResource("3_jyhfs")
 theme_override_font_sizes/normal_font_size = 40
 text = "E"
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=252970677]
+
+[node name="FadeScreen" type="ColorRect" parent="CanvasLayer" unique_id=390960596]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1009735997]
+libraries/ = SubResource("AnimationLibrary_o6xl0")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="CanvasLayer" unique_id=702707682]
+libraries/ = SubResource("AnimationLibrary_o6xl0")
+
 [node name="kill zones" type="Node" parent="." unique_id=1122902972]
 
 [node name="Kill zone" type="Area2D" parent="kill zones" unique_id=44443531]
@@ -260,22 +293,14 @@ metadata/_edit_group_ = true
 position = Vector2(0, 1)
 shape = SubResource("WorldBoundaryShape2D_8fc75")
 
-[node name="Coin" parent="." unique_id=1803460103 instance=ExtResource("5_tefeu")]
+[node name="coins" type="Node" parent="." unique_id=1034153498]
+
+[node name="Coin" parent="coins" unique_id=1803460103 instance=ExtResource("5_tefeu")]
 position = Vector2(590, 53)
-rotation = 3.1415927
+rotation = -3.1415925
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=252970677]
-
-[node name="FadeScreen" type="ColorRect" parent="CanvasLayer" unique_id=390960596]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 1, 1, 0)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1009735997]
-libraries/ = SubResource("AnimationLibrary_o6xl0")
+[node name="Coin2" parent="coins" unique_id=191990791 instance=ExtResource("5_tefeu")]
+position = Vector2(437, 484.00003)
 
 [connection signal="body_entered" from="kill zones/Kill zone" to="kill zones/Kill zone" method="_on_body_entered"]
 [connection signal="body_entered" from="kill zones/Kill zone2" to="kill zones/Kill zone2" method="_on_body_entered"]
