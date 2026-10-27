@@ -18,9 +18,12 @@ func _on_body_entered(body: Node2D) -> void:
 		GameManager.timer_active = false
 		GameManager.coins_collected += 1
 		
-		$AnimatedSprite2D.visible = false
-		$CollisionShape2D.set_deferred("disabled", true )
+		$AnimatedSprite2D.play("win")
 		$AudioStreamPlayer2D.play()
+		$CollisionShape2D.set_deferred("disabled", true )
+		await $AnimatedSprite2D.animation_finished
+		$AnimatedSprite2D.visible = false
+		
 	
 		var fade_anim = get_node("../CanvasLayer/AnimationPlayer")
 		if fade_anim:
