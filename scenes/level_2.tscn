@@ -257,7 +257,7 @@ layer_1/tile_data = PackedInt32Array(1310693, 393217, 0, 1310694, 393217, 0, 131
 
 [node name="player" parent="." unique_id=649235633 groups=["player"] instance=ExtResource("4_que50")]
 z_index = 1
-position = Vector2(117, 478)
+position = Vector2(119, 496)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=252970677]
 
@@ -319,6 +319,10 @@ position = Vector2(838.00006, 499)
 process_mode = 3
 stream = ExtResource("8_ne2mo")
 autoplay = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1345907236]
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="body_entered" from="kill zones/Kill zone" to="kill zones/Kill zone" method="_on_body_entered"]
 [connection signal="body_entered" from="kill zones/Kill zone2" to="kill zones/Kill zone2" method="_on_body_entered"]
