@@ -283,9 +283,10 @@ next_scene = "uid://cgfgwq3j13fkp"
 scale = Vector2(0.5000013, 0.49999952)
 sprite_frames = SubResource("SpriteFrames_e6q6n")
 autoplay = "default"
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1593492612]
-position = Vector2(1.333313, 3.333313)
+position = Vector2(-0.7692075, 3.8461492)
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=293401670]
