@@ -16,7 +16,6 @@ func _on_body_entered(body: Node2D) -> void:
 		level_ended = true
 		
 		GameManager.timer_active = false
-		GameManager.coins_collected += 1
 		
 		$AnimatedSprite2D.play("win")
 		$AudioStreamPlayer2D.play()

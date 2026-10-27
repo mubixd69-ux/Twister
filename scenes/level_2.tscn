@@ -238,6 +238,7 @@ script = ExtResource("1_y0kc7")
 [node name="end" parent="." unique_id=1167529760 instance=ExtResource("2_ne2mo")]
 z_index = 1
 position = Vector2(1114, 482)
+next_scene = "uid://slwfpadrrff1"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1596567552]
 position = Vector2(576, 325)
