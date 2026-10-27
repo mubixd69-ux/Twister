@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://b14404hmu5oo7" path="res://scenes/end.tscn" id="2_ne2mo"]
 [ext_resource type="Texture2D" uid="uid://dovai170x0jp7" path="res://Assets/sprites/world_tileset.png" id="3_6cvei"]
 [ext_resource type="PackedScene" uid="uid://cuq0gw18xq4kx" path="res://scenes/player.tscn" id="4_que50"]
-[ext_resource type="FontFile" uid="uid://ccnu52aw6ea6l" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="5_hey2k"]
 [ext_resource type="Script" uid="uid://uihg653d6f03" path="res://scripts/kill_zone.gd" id="6_172wr"]
 [ext_resource type="PackedScene" uid="uid://bcd7v0lq0cvq5" path="res://coin.tscn" id="7_g2hoc"]
+[ext_resource type="AudioStream" uid="uid://bbcnl8prtg0rm" path="res://Assets/music/time_for_adventure.mp3" id="8_ne2mo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y0kc7"]
 texture = ExtResource("3_6cvei")
@@ -237,7 +237,8 @@ script = ExtResource("1_y0kc7")
 
 [node name="end" parent="." unique_id=1167529760 instance=ExtResource("2_ne2mo")]
 z_index = 1
-position = Vector2(1114, 482)
+position = Vector2(1114.0001, 487.00003)
+rotation = 6.2831855
 next_scene = "uid://slwfpadrrff1"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1596567552]
@@ -257,16 +258,6 @@ layer_1/tile_data = PackedInt32Array(1310693, 393217, 0, 1310694, 393217, 0, 131
 [node name="player" parent="." unique_id=649235633 groups=["player"] instance=ExtResource("4_que50")]
 z_index = 1
 position = Vector2(117, 478)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=11381377]
-modulate = Color(1, 1, 1, 0.078431375)
-offset_left = 494.0
-offset_top = 408.0
-offset_right = 542.0
-offset_bottom = 452.0
-theme_override_fonts/normal_font = ExtResource("5_hey2k")
-theme_override_font_sizes/normal_font_size = 40
-text = "E"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=252970677]
 
@@ -323,6 +314,11 @@ rotation = 3.1415927
 
 [node name="Coin5" parent="coins" unique_id=1487522362 instance=ExtResource("7_g2hoc")]
 position = Vector2(838.00006, 499)
+
+[node name="music" type="AudioStreamPlayer2D" parent="." unique_id=269624416]
+process_mode = 3
+stream = ExtResource("8_ne2mo")
+autoplay = true
 
 [connection signal="body_entered" from="kill zones/Kill zone" to="kill zones/Kill zone" method="_on_body_entered"]
 [connection signal="body_entered" from="kill zones/Kill zone2" to="kill zones/Kill zone2" method="_on_body_entered"]
